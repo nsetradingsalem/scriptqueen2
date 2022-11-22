@@ -29,27 +29,27 @@ def create_currency():
     pastDate = datetime.combine(datetime.now(timezone('Asia/Kolkata')), time(9,15)).time()
     nsepadDate = datetime.combine(datetime.now(timezone('Asia/Kolkata')), time(9,15)).date()
 
-    # LiveEquityResult.objects.all().delete()
-    # LiveSegment.objects.filter(time__lte = pastDate).delete()
-    # LiveSegment.objects.filter(date__lt = nsepadDate).delete()
+    LiveEquityResult.objects.all().delete()
+    LiveSegment.objects.filter(time__lte = pastDate).delete()
+    LiveSegment.objects.filter(date__lt = nsepadDate).delete()
 
     pastDate = datetime.combine(datetime.now(timezone('Asia/Kolkata')), time(9,15))
     segpastDate = datetime.combine(datetime.now(timezone('Asia/Kolkata')), time(9,15)).time()
 
-    # LiveEquityResult.objects.all().delete()
-    # TestEquityResult.objects.filter(date__lte = pastDate).delete()
-    # LiveEquityResult.objects.filter(date__lte = pastDate).delete()
-    # LiveSegment.objects.filter(time__lte = segpastDate).delete()
-    # LiveSegment.objects.filter(date__lt = nsepadDate).delete()
+    LiveEquityResult.objects.all().delete()
+    TestEquityResult.objects.filter(date__lte = pastDate).delete()
+    LiveEquityResult.objects.filter(date__lte = pastDate).delete()
+    LiveSegment.objects.filter(time__lte = segpastDate).delete()
+    LiveSegment.objects.filter(date__lt = nsepadDate).delete()
 
-    # SuperLiveSegment.objects.filter(time__lte = segpastDate).delete()
-    # SuperLiveSegment.objects.filter(date__lt = nsepadDate).delete()
+    SuperLiveSegment.objects.filter(time__lte = segpastDate).delete()
+    SuperLiveSegment.objects.filter(date__lt = nsepadDate).delete()
 
-    # EquityThree.objects.filter(time__lte = segpastDate).delete()
-    # EquityThree.objects.filter(date__lt = nsepadDate).delete()
+    EquityThree.objects.filter(time__lte = segpastDate).delete()
+    EquityThree.objects.filter(date__lt = nsepadDate).delete()
     
-    fnolist = ['IRCTC']
-    #fnolist = ['AARTIIND', 'ABBOTINDIA', 'ABFRL', 'ACC', 'ADANIPORTS', 'ALKEM', 'AMARAJABAT', 'AMBUJACEM', 'APOLLOHOSP', 'ASIANPAINT', 'ASTRAL', 'ATUL', 'AUBANK', 'AUROPHARMA', 'AXISBANK', 'BAJAJ-AUTO', 'BAJAJFINSV', 'BAJFINANCE', 'BALRAMCHIN', 'BANDHANBNK', 'BATAINDIA', 'BERGEPAINT', 'BHARATFORG', 'BHARTIARTL', 'BIOCON', 'BOSCHLTD', 'BPCL', 'BSOFT', 'CANFINHOME', 'CHAMBLFERT', 'CHOLAFIN', 'CIPLA', 'COFORGE', 'COLPAL', 'CONCOR', 'COROMANDEL', 'CROMPTON', 'CUMMINSIND', 'DABUR', 'DALBHARAT', 'DEEPAKNTR', 'DELTACORP', 'DIVISLAB', 'DIXON', 'DLF', 'DRREDDY', 'ESCORTS', 'GLENMARK', 'GNFC', 'GODREJCP', 'GODREJPROP', 'GRANULES', 'GRASIM', 'GSPL', 'GUJGASLTD', 'HAL', 'HAVELLS', 'HCLTECH', 'HDFC', 'HDFCAMC', 'HDFCBANK', 'HDFCLIFE', 'HINDALCO', 'HINDPETRO', 'HINDUNILVR', 'HONAUT', 'ICICIBANK', 'ICICIGI', 'ICICIPRULI', 'IGL', 'INDIAMART', 'INDIGO', 'INDUSINDBK', 'INDUSTOWER', 'INFY', 'INTELLECT', 'IPCALAB', 'IRCTC', 'JINDALSTEL', 'JKCEMENT', 'JSWSTEEL', 'JUBLFOOD', 'KOTAKBANK', 'LALPATHLAB', 'LAURUSLABS', 'LICHSGFIN', 'LT', 'LTI', 'LTTS', 'LUPIN', 'MARICO', 'MARUTI', 'MCDOWELL-N', 'MCX', 'MFSL', 'MGL', 'MINDTREE', 'MPHASIS', 'MRF', 'MUTHOOTFIN', 'NAUKRI', 'NAVINFLUOR', 'OBEROIRLTY', 'OFSS', 'PAGEIND', 'PERSISTENT', 'PIDILITIND', 'PIIND', 'POLYCAB', 'PVR', 'RAIN', 'RAMCOCEM', 'RELIANCE', 'SBICARD', 'SBILIFE', 'SBIN', 'SHREECEM', 'SIEMENS', 'SRF', 'SRTRANSFIN', 'SUNPHARMA', 'SUNTV', 'SYNGENE', 'TATACHEM', 'TATACOMM', 'TATACONSUM', 'TATAMOTORS', 'TATASTEEL', 'TECHM', 'TORNTPHARM', 'TORNTPOWER', 'TRENT', 'TVSMOTOR', 'UBL', 'ULTRACEMCO', 'UPL', 'VOLTAS', 'WHIRLPOOL', 'WIPRO', 'ZEEL', 'ZYDUSLIFE']
+    # fnolist = ['IRCTC']
+    fnolist = ['AARTIIND', 'ABBOTINDIA', 'ABFRL', 'ACC', 'ADANIPORTS', 'ALKEM', 'AMARAJABAT', 'AMBUJACEM', 'APOLLOHOSP', 'ASIANPAINT', 'ASTRAL', 'ATUL', 'AUBANK', 'AUROPHARMA', 'AXISBANK', 'BAJAJ-AUTO', 'BAJAJFINSV', 'BAJFINANCE', 'BALRAMCHIN', 'BANDHANBNK', 'BATAINDIA', 'BERGEPAINT', 'BHARATFORG', 'BHARTIARTL', 'BIOCON', 'BOSCHLTD', 'BPCL', 'BSOFT', 'CANFINHOME', 'CHAMBLFERT', 'CHOLAFIN', 'CIPLA', 'COFORGE', 'COLPAL', 'CONCOR', 'COROMANDEL', 'CROMPTON', 'CUMMINSIND', 'DABUR', 'DALBHARAT', 'DEEPAKNTR', 'DELTACORP', 'DIVISLAB', 'DIXON', 'DLF', 'DRREDDY', 'ESCORTS', 'GLENMARK', 'GNFC', 'GODREJCP', 'GODREJPROP', 'GRANULES', 'GRASIM', 'GSPL', 'GUJGASLTD', 'HAL', 'HAVELLS', 'HCLTECH', 'HDFC', 'HDFCAMC', 'HDFCBANK', 'HDFCLIFE', 'HINDALCO', 'HINDPETRO', 'HINDUNILVR', 'HONAUT', 'ICICIBANK', 'ICICIGI', 'ICICIPRULI', 'IGL', 'INDIAMART', 'INDIGO', 'INDUSINDBK', 'INDUSTOWER', 'INFY', 'INTELLECT', 'IPCALAB', 'IRCTC', 'JINDALSTEL', 'JKCEMENT', 'JSWSTEEL', 'JUBLFOOD', 'KOTAKBANK', 'LALPATHLAB', 'LAURUSLABS', 'LICHSGFIN', 'LT', 'LTI', 'LTTS', 'LUPIN', 'MARICO', 'MARUTI', 'MCDOWELL-N', 'MCX', 'MFSL', 'MGL', 'MINDTREE', 'MPHASIS', 'MRF', 'MUTHOOTFIN', 'NAUKRI', 'NAVINFLUOR', 'OBEROIRLTY', 'OFSS', 'PAGEIND', 'PERSISTENT', 'PIDILITIND', 'PIIND', 'POLYCAB', 'PVR', 'RAIN', 'RAMCOCEM', 'RELIANCE', 'SBICARD', 'SBILIFE', 'SBIN', 'SHREECEM', 'SIEMENS', 'SRF', 'SRTRANSFIN', 'SUNPHARMA', 'SUNTV', 'SYNGENE', 'TATACHEM', 'TATACOMM', 'TATACONSUM', 'TATAMOTORS', 'TATASTEEL', 'TECHM', 'TORNTPHARM', 'TORNTPOWER', 'TRENT', 'TVSMOTOR', 'UBL', 'ULTRACEMCO', 'UPL', 'VOLTAS', 'WHIRLPOOL', 'WIPRO', 'ZEEL', 'ZYDUSLIFE']
     #super_three_list = list(SuperLiveSegment.objects.all().values_list('symbol', flat=True))
     gain_list = SuperLiveSegment.objects.filter(segment__in=["gain"]).order_by('-change_perc').values_list('symbol', flat=True) 
     loss_list = SuperLiveSegment.objects.filter(segment__in=["loss"]).order_by('change_perc').values_list('symbol', flat=True) 
@@ -261,10 +261,8 @@ def create_currency():
             #######
 
             # final put calculation:
-            print(df)
             pe_final = df.loc[df['type'] == "PE"]
             final_df_put = pe_final.loc[pe_final['oi_change'] != 0].sort_values('oi_change', ascending=False)
-            print(final_df_put)
             peltt = final_df_put.iloc[0]['ltt']
             put_max_ceoi = final_df_put.iloc[0]['oi_change']
             put_max_ceoi_strike = final_df_put.iloc[0]['strike']
@@ -281,13 +279,21 @@ def create_currency():
             pecenterOI = final_df_put[final_df_put['strike']==pecenterindex].oi.item()
             peminusoneOI = final_df_put[final_df_put['strike']==peminusoneindex].oi.item()
 
-            one = int(peoneindex) * int(peplusoneOI)
-            two = int(pecenterindex) * int(pecenterOI)
-            three = int(peminusoneindex) * int(peminusoneOI)
+            print(peoneindex)
+            print(pecenterindex)
+            print(peminusoneindex)
+
+            print(peplusoneOI)
+            print(pecenterOI)
+            print(peminusoneOI)
+
+            one = float(peoneindex) * float(peplusoneOI)
+            two = float(pecenterindex) * float(pecenterOI)
+            three = float(peminusoneindex) * float(peminusoneOI)
 
             pe_oi_strike_total = one + two + three
             pe_oi_total = (peplusoneOI + pecenterOI + peminusoneOI)
-            put_final = int(pe_oi_strike_total)/pe_oi_total
+            put_final = int(pe_oi_strike_total)//pe_oi_total
             put_ceoi_total = pe_final['oi_change'].sum()
             print(f"put_call: {int(put_final)}")
 
@@ -477,8 +483,8 @@ def create_currency():
         from datetime import datetime, time
         pastDate = datetime.combine(datetime.now(timezone('Asia/Kolkata')), time(9,15))
 
-        #LiveEquityResult.objects.all().delete()
-        # LiveOITotalAllSymbol.objects.filter(time__lte = pastDate).delete()
+        LiveEquityResult.objects.all().delete()
+        LiveOITotalAllSymbol.objects.filter(time__lte = pastDate).delete()
 
         # # Deleting past historical data in the database
         HistoryOIChange.objects.filter(time__lte = pastDate).delete()
@@ -486,9 +492,9 @@ def create_currency():
         HistoryOIPercentChange.objects.filter(time__lte = pastDate).delete()
 
         # Deleting live data
-        # LiveOITotal.objects.filter(time__lte = pastDate).delete()
-        # LiveOIChange.objects.filter(time__lte = pastDate).delete()
-        # LiveOIPercentChange.objects.filter(time__lte = pastDate).delete()
+        LiveOITotal.objects.filter(time__lte = pastDate).delete()
+        LiveOIChange.objects.filter(time__lte = pastDate).delete()
+        LiveOIPercentChange.objects.filter(time__lte = pastDate).delete()
        
         value1 = LiveOIChange.objects.filter(symbol=item)
 
@@ -645,5 +651,5 @@ def create_currency():
             td_obj.disconnect()
         sleep(1)
 
-# while True:
-create_currency()
+while True:
+    create_currency()

@@ -29,14 +29,14 @@ def create_currency():
     pastDate = datetime.combine(datetime.now(timezone('Asia/Kolkata')), time(9,15)).time()
     nsepadDate = datetime.combine(datetime.now(timezone('Asia/Kolkata')), time(9,15)).date()
 
-    LiveEquityResult.objects.all().delete()
+    #LiveEquityResult.objects.all().delete()
     LiveSegment.objects.filter(time__lte = pastDate).delete()
     LiveSegment.objects.filter(date__lt = nsepadDate).delete()
 
     pastDate = datetime.combine(datetime.now(timezone('Asia/Kolkata')), time(9,15))
     segpastDate = datetime.combine(datetime.now(timezone('Asia/Kolkata')), time(9,15)).time()
 
-    LiveEquityResult.objects.all().delete()
+    #LiveEquityResult.objects.all().delete()
     TestEquityResult.objects.filter(date__lte = pastDate).delete()
     LiveEquityResult.objects.filter(date__lte = pastDate).delete()
     LiveSegment.objects.filter(time__lte = segpastDate).delete()
@@ -49,7 +49,148 @@ def create_currency():
     EquityThree.objects.filter(date__lt = nsepadDate).delete()
     
     # fnolist = ['IRCTC']
-    fnolist = ['AARTIIND', 'ABBOTINDIA', 'ABFRL', 'ACC', 'ADANIPORTS', 'ALKEM', 'AMARAJABAT', 'AMBUJACEM', 'APOLLOHOSP', 'ASIANPAINT', 'ASTRAL', 'ATUL', 'AUBANK', 'AUROPHARMA', 'AXISBANK', 'BAJAJ-AUTO', 'BAJAJFINSV', 'BAJFINANCE', 'BALRAMCHIN', 'BANDHANBNK', 'BATAINDIA', 'BERGEPAINT', 'BHARATFORG', 'BHARTIARTL', 'BIOCON', 'BOSCHLTD', 'BPCL', 'BSOFT', 'CANFINHOME', 'CHAMBLFERT', 'CHOLAFIN', 'CIPLA', 'COFORGE', 'COLPAL', 'CONCOR', 'COROMANDEL', 'CROMPTON', 'CUMMINSIND', 'DABUR', 'DALBHARAT', 'DEEPAKNTR', 'DELTACORP', 'DIVISLAB', 'DIXON', 'DLF', 'DRREDDY', 'ESCORTS', 'GLENMARK', 'GNFC', 'GODREJCP', 'GODREJPROP', 'GRANULES', 'GRASIM', 'GSPL', 'GUJGASLTD', 'HAL', 'HAVELLS', 'HCLTECH', 'HDFC', 'HDFCAMC', 'HDFCBANK', 'HDFCLIFE', 'HINDALCO', 'HINDPETRO', 'HINDUNILVR', 'HONAUT', 'ICICIBANK', 'ICICIGI', 'ICICIPRULI', 'IGL', 'INDIAMART', 'INDIGO', 'INDUSINDBK', 'INDUSTOWER', 'INFY', 'INTELLECT', 'IPCALAB', 'IRCTC', 'JINDALSTEL', 'JKCEMENT', 'JSWSTEEL', 'JUBLFOOD', 'KOTAKBANK', 'LALPATHLAB', 'LAURUSLABS', 'LICHSGFIN', 'LT', 'LTI', 'LTTS', 'LUPIN', 'MARICO', 'MARUTI', 'MCDOWELL-N', 'MCX', 'MFSL', 'MGL', 'MINDTREE', 'MPHASIS', 'MRF', 'MUTHOOTFIN', 'NAUKRI', 'NAVINFLUOR', 'OBEROIRLTY', 'OFSS', 'PAGEIND', 'PERSISTENT', 'PIDILITIND', 'PIIND', 'POLYCAB', 'PVR', 'RAIN', 'RAMCOCEM', 'RELIANCE', 'SBICARD', 'SBILIFE', 'SBIN', 'SHREECEM', 'SIEMENS', 'SRF', 'SRTRANSFIN', 'SUNPHARMA', 'SUNTV', 'SYNGENE', 'TATACHEM', 'TATACOMM', 'TATACONSUM', 'TATAMOTORS', 'TATASTEEL', 'TECHM', 'TORNTPHARM', 'TORNTPOWER', 'TRENT', 'TVSMOTOR', 'UBL', 'ULTRACEMCO', 'UPL', 'VOLTAS', 'WHIRLPOOL', 'WIPRO', 'ZEEL', 'ZYDUSLIFE']
+    fnolist = ["MRF","HONAUT"   ,"PAGEIND"   ,"SHREECEM"  
+,"ABBOTINDIA"
+,"NESTLEIND" 
+,"BOSCHLTD"  
+,"ATUL"      
+,"MARUTI"    
+,"ULTRACEMCO"
+,"BAJFINANCE"
+,"NAUKRI"    
+,"APOLLOHOSP"
+,"DIXON"     
+,"DRREDDY"   
+,"INDIAMART" 
+,"LTI"       
+,"COFORGE"   
+,"DIVISLAB"  
+,"PERSISTENT"
+,"TCS"       
+,"EICHERMOT" 
+,"MPHASIS"   
+,"ALKEM"     
+,"ASIANPAINT"
+,"BRITANNIA" 
+,"LTTS"      
+,"MINDTREE"  
+,"OFSS"      
+,"NAVINFLUOR"
+,"ABB"       
+,"ADANIENT"  
+,"BAJAJ-AUTO"
+,"DEEPAKNTR" 
+,"JKCEMENT"  
+,"LALPATHLAB"
+,"PIIND"     
+,"ACC"       
+,"BATAINDIA" 
+,"ESCORTS"   
+,"PEL"       
+,"HEROMOTOCO"
+,"POLYCAB"   
+,"HDFC"      
+,"HDFCAMC"   
+,"HINDUNILVR"
+,"INDIGO"    
+,"INFY"      
+,"LT"        
+,"METROPOLIS"
+,"GODREJPROP"
+,"COLPAL"    
+,"WHIRLPOOL" 
+,"SRF"       
+,"MUTHOOTFIN"
+,"TITAN"     
+,"KOTAKBANK" 
+,"MCX"       
+,"UBL"       
+,"PVR"       
+,"ICICIGI"   
+,"INDUSINDBK"
+,"GRASIM"    
+,"HAL"       
+,"DALBHARAT" 
+,"HAVELLS"   
+,"TATACOMM"  
+,"VOLTAS"    
+,"TATACHEM"  
+,"HDFCBANK"  
+,"CUMMINSIND"
+,"SRTRANSFIN"
+,"TECHM"     
+,"ADANIPORTS"
+,"MCDOWELL-N"
+,"CIPLA"     
+,"IPCALAB"   
+,"MFSL"      
+,"COROMANDEL"
+,"M&M"     
+,"OBEROIRLTY"
+,"HCLTECH"   
+,"SUNPHARMA" 
+,"TVSMOTOR"  
+,"TRENT"     
+,"SBILIFE"   
+,"INTELLECT" 
+,"MGL"       
+,"SBICARD"   
+,"AARTIIND"  
+,"LUPIN"     
+,"RAMCOCEM"  
+,"IRCTC"     
+,"LAURUSLABS"
+,"TATACONSUM"
+,"BHARTIARTL"
+,"CANFINHOME"
+,"AUBANK"    
+,"AUROPHARMA"
+,"BHARATFORG"
+,"CONCOR"    
+,"GODREJCP"  
+,"SYNGENE"   
+,"AMARAJABAT"
+,"WIPRO"     
+,"HINDALCO"  
+,"BERGEPAINT"
+,"HDFCLIFE"  
+,"GLENMARK"  
+,"AXISBANK"  
+,"MARICO"    
+,"CHOLAFIN"  
+,"GUJGASLTD" 
+,"JINDALSTEL"
+,"JUBLFOOD"  
+,"DABUR"     
+,"GNFC"      
+,"UPL"       
+,"BSOFT"     
+,"JSWSTEEL"  
+,"ICICIBANK" 
+,"IGL"       
+,"TATAMOTORS"
+,"CHAMBLFERT"
+,"ICICIPRULI"
+,"TORNTPOWER"
+,"CROMPTON"  
+,"SBIN"      
+,"SUNTV"     
+,"VEDL"      
+,"BALRAMCHIN"
+,"DLF"       
+,"AMBUJACEM" 
+,"BANDHANBNK"
+,"BPCL"      
+,"GRANULES"  
+,"LICHSGFIN" 
+,"BIOCON"    
+,"DELTACORP" 
+,"GSPL"      
+,"ABFRL"     
+,"HINDPETRO" 
+,"ZEEL"      
+,"RAIN"]
+    #fnolist = ['AARTIIND', 'ABBOTINDIA', 'ABFRL', 'ACC', 'ADANIPORTS', 'ALKEM', 'AMARAJABAT', 'AMBUJACEM', 'APOLLOHOSP', 'ASIANPAINT', 'ASTRAL', 'ATUL', 'AUBANK', 'AUROPHARMA', 'AXISBANK', 'BAJAJ-AUTO', 'BAJAJFINSV', 'BAJFINANCE', 'BALRAMCHIN', 'BANDHANBNK', 'BATAINDIA', 'BERGEPAINT', 'BHARATFORG', 'BHARTIARTL', 'BIOCON', 'BOSCHLTD', 'BPCL', 'BSOFT', 'CANFINHOME', 'CHAMBLFERT', 'CHOLAFIN', 'CIPLA', 'COFORGE', 'COLPAL', 'CONCOR', 'COROMANDEL', 'CROMPTON', 'CUMMINSIND', 'DABUR', 'DALBHARAT', 'DEEPAKNTR', 'DELTACORP', 'DIVISLAB', 'DIXON', 'DLF', 'DRREDDY', 'ESCORTS', 'GLENMARK', 'GNFC', 'GODREJCP', 'GODREJPROP', 'GRANULES', 'GRASIM', 'GSPL', 'GUJGASLTD', 'HAL', 'HAVELLS', 'HCLTECH', 'HDFC', 'HDFCAMC', 'HDFCBANK', 'HDFCLIFE', 'HINDALCO', 'HINDPETRO', 'HINDUNILVR', 'HONAUT', 'ICICIBANK', 'ICICIGI', 'ICICIPRULI', 'IGL', 'INDIAMART', 'INDIGO', 'INDUSINDBK', 'INDUSTOWER', 'INFY', 'INTELLECT', 'IPCALAB', 'IRCTC', 'JINDALSTEL', 'JKCEMENT', 'JSWSTEEL', 'JUBLFOOD', 'KOTAKBANK', 'LALPATHLAB', 'LAURUSLABS', 'LICHSGFIN', 'LT', 'LTI', 'LTTS', 'LUPIN', 'MARICO', 'MARUTI', 'MCDOWELL-N', 'MCX', 'MFSL', 'MGL', 'MINDTREE', 'MPHASIS', 'MRF', 'MUTHOOTFIN', 'NAUKRI', 'NAVINFLUOR', 'OBEROIRLTY', 'OFSS', 'PAGEIND', 'PERSISTENT', 'PIDILITIND', 'PIIND', 'POLYCAB', 'PVR', 'RAIN', 'RAMCOCEM', 'RELIANCE', 'SBICARD', 'SBILIFE', 'SBIN', 'SHREECEM', 'SIEMENS', 'SRF', 'SRTRANSFIN', 'SUNPHARMA', 'SUNTV', 'SYNGENE', 'TATACHEM', 'TATACOMM', 'TATACONSUM', 'TATAMOTORS', 'TATASTEEL', 'TECHM', 'TORNTPHARM', 'TORNTPOWER', 'TRENT', 'TVSMOTOR', 'UBL', 'ULTRACEMCO', 'UPL', 'VOLTAS', 'WHIRLPOOL', 'WIPRO', 'ZEEL', 'ZYDUSLIFE']
     #super_three_list = list(SuperLiveSegment.objects.all().values_list('symbol', flat=True))
     gain_list = SuperLiveSegment.objects.filter(segment__in=["gain"]).order_by('-change_perc').values_list('symbol', flat=True) 
     loss_list = SuperLiveSegment.objects.filter(segment__in=["loss"]).order_by('change_perc').values_list('symbol', flat=True) 
@@ -483,7 +624,7 @@ def create_currency():
         from datetime import datetime, time
         pastDate = datetime.combine(datetime.now(timezone('Asia/Kolkata')), time(9,15))
 
-        LiveEquityResult.objects.all().delete()
+        #LiveEquityResult.objects.all().delete()
         LiveOITotalAllSymbol.objects.filter(time__lte = pastDate).delete()
 
         # # Deleting past historical data in the database

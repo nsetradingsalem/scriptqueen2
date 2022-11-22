@@ -39,7 +39,7 @@ class EquityThree(models.Model):
         return self.symbol
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'
 
 class HistoryOIChange(models.Model):
     time = models.DateTimeField(auto_now_add=False)
@@ -56,7 +56,7 @@ class HistoryOIChange(models.Model):
         return self.call1+" "+self.callstrike+" "+self.symbol
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'
 class HistoryOIPercentChange(models.Model):
     time = models.DateTimeField(auto_now_add=False)
     call1 = models.CharField(max_length=20,default="")
@@ -72,7 +72,7 @@ class HistoryOIPercentChange(models.Model):
         return self.call1+" "+self.callstrike+" "+self.symbol
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'
 class LiveOIChange(models.Model):
     time = models.DateTimeField(auto_now_add=False)
     call1 = models.CharField(max_length=20,default="")
@@ -96,7 +96,7 @@ class LiveOIChange(models.Model):
         return self.call1+" "+self.callstrike+" "+self.symbol
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'
 class HistoryOITotal(models.Model):
     time = models.DateTimeField(auto_now_add=False)
     call1 = models.CharField(max_length=20,default="")
@@ -112,7 +112,7 @@ class HistoryOITotal(models.Model):
         return self.call1+" "+self.callstrike+" "+self.symbol
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'
 class LiveOITotal(models.Model):
     time = models.DateTimeField(auto_now_add=False)
     call1 = models.CharField(max_length=20,default="")
@@ -129,7 +129,7 @@ class LiveOITotal(models.Model):
         return self.call1+" "+self.callstrike+" "+self.symbol
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'
 class LiveOIPercentChange(models.Model):
     time = models.DateTimeField(auto_now_add=False)
     call1 = models.CharField(max_length=20,default="")
@@ -146,7 +146,7 @@ class LiveOIPercentChange(models.Model):
         return self.call1+" "+self.callstrike+" "+self.symbol
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'
 
 class LiveOITotalAllSymbol(models.Model):
     time = models.DateTimeField(auto_now_add=False)
@@ -167,7 +167,7 @@ class LiveOITotalAllSymbol(models.Model):
         return self.call1+" "+self.callstrike+" "+self.symbol
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'
 
 class LiveEquityResult(models.Model):
     time = models.TimeField(auto_now_add=False)
@@ -189,7 +189,7 @@ class LiveEquityResult(models.Model):
         return self.symbol+" "+self.ltp+" "+self.strike
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'
 
 class TestEquityResult(models.Model):
     time = models.TimeField(auto_now_add=False)
@@ -207,7 +207,7 @@ class TestEquityResult(models.Model):
         return self.symbol+" "+self.ltp+" "+self.strike
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'
 
 class LiveSegment(models.Model):
     symbol = models.CharField(max_length=20)
@@ -222,7 +222,7 @@ class LiveSegment(models.Model):
 
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'
 
 class SuperLiveSegment(models.Model):
     symbol = models.CharField(max_length=20)
@@ -236,4 +236,4 @@ class SuperLiveSegment(models.Model):
 
     class Meta:
 
-        app_label = 'orderticket'
+        app_label = 'myapp'

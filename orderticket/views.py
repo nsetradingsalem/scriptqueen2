@@ -179,8 +179,7 @@ def sample(request):
 ,"GRANULES"  
 ,"LICHSGFIN" 
 ,"BIOCON"    
-,"DELTACORP" 
-,"GSPL"      
+,"DELTACORP"     
 ,"ABFRL"     
 ,"HINDPETRO" 
 ,"ZEEL"      
@@ -991,7 +990,6 @@ def optionChain(request):
 'LICHSGFIN':2000,
 'BIOCON':2300,
 'DELTACORP':2300,
-'GSPL':2500,
 'ABFRL':2600,
 'HINDPETRO':2700,
 'ZEEL':3000,
@@ -1147,8 +1145,7 @@ def home(request):
 ,"GRANULES"  
 ,"LICHSGFIN" 
 ,"BIOCON"    
-,"DELTACORP" 
-,"GSPL"      
+,"DELTACORP"      
 ,"ABFRL"     
 ,"HINDPETRO" 
 ,"ZEEL"      

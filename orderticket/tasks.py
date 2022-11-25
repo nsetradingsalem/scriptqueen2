@@ -748,7 +748,7 @@ def create_currency():
         try:
  
             # print("inside monthend")
-            expiry = "24-Nov-2022"
+            expiry = "29-Dec-2022"
             dte = dt.strptime(expiry, '%d-%b-%Y')
 
             # print("After exception")
